@@ -38,10 +38,8 @@ public class InputHandler extends InputAdapter {
 
     public boolean checkKbInput(String keyCode) {
         for (int inputIndex = 0; inputIndex < kcInput.size(); inputIndex++) {
-            if (kcInput.get(inputIndex) != null) {
-                if (kcInput.get(inputIndex).equals(keyCode)) {
-                    return true;
-                }
+            if ((kcInput.get(inputIndex) != null) && kcInput.get(inputIndex).equals(keyCode)) {
+                return true;
             }
         }
         return false;

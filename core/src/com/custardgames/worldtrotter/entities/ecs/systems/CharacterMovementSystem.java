@@ -58,10 +58,10 @@ public class CharacterMovementSystem extends EntityProcessingSystem implements E
 
         double force = 100;
 
-        if (characterFeetComponent.isOnGround() && !characterLegComponent.isOnGround()) {
-            if (characterInput.isUp() && body.getLinearVelocity().y < 15) {
-                body.applyForceToCenter((int) (0), (int) (1500), true);
-            }
+        if (characterFeetComponent.isOnGround()
+                && !characterLegComponent.isOnGround()
+                && (characterInput.isUp() && body.getLinearVelocity().y < 15)) {
+            body.applyForceToCenter((int) (0), (int) (1500), true);
         }
 
         if (characterInput.isLeft() && !characterLegComponent.isOnGround()) {
