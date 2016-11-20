@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="150" height="50" tilewidth="32" tileheight="32">
+ <properties>
+  <property name="unitScale" value="0.03125"/>
+ </properties>
+ <tileset firstgid="1" name="tileset1" tilewidth="32" tileheight="32">
+  <image source="tileset1.png" width="512" height="512"/>
+ </tileset>
+ <layer name="Tile Layer 1" width="150" height="50">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3XwQnAQAwDwdSY/otJCyYEbmNmQH9h3eeuCwAAAAAAAAAAANjmlhWpOX0P2f2u+KfqftVezFT3q/ZiprpftRcz1f2qvZip7lftxUx1v9P/Y/kmNafvITvfFQAAAAAAAAAAAAAAAADvPLsJCVYwdQAA
+  </data>
+ </layer>
+ <objectgroup name="Object Layer 1">
+  <object type="object" x="576" y="544" width="3648" height="64">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+    <property name="categoryBits" value="1"/>
+    <property name="friction" value="1"/>
+    <property name="userData" value="ground"/>
+   </properties>
+  </object>
+  <object type="object" x="576" y="800" width="3648" height="64">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+    <property name="categoryBits" value="1"/>
+    <property name="friction" value="1"/>
+    <property name="userData" value="ground"/>
+   </properties>
+  </object>
+  <object type="object" x="576" y="608" width="64" height="192">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+    <property name="categoryBits" value="1"/>
+    <property name="userData" value="ground"/>
+   </properties>
+  </object>
+  <object type="object" x="4160" y="608" width="64" height="192">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+    <property name="categoryBits" value="1"/>
+    <property name="userData" value="ground"/>
+   </properties>
+  </object>
+  <object name="nextlevel" type="object" x="4064" y="704" width="32" height="64">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+    <property name="categoryBits" value="1"/>
+    <property name="isSensor" value="true"/>
+    <property name="userData" value="nextlevel"/>
+   </properties>
+  </object>
+  <object name="light1" type="object" x="2496" y="640" width="32" height="32">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+    <property name="isSensor" value="true"/>
+    <property name="userData" value="light"/>
+   </properties>
+  </object>
+  <object name="light2" type="object" x="3744" y="640" width="32" height="32">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+    <property name="isSensor" value="true"/>
+    <property name="userData" value="light"/>
+   </properties>
+  </object>
+  <object name="light3" type="object" x="1216" y="640" width="32" height="32">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+    <property name="isSensor" value="true"/>
+    <property name="userData" value="light"/>
+   </properties>
+  </object>
+  <object name="title" type="object" x="928" y="384" width="720" height="128">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+    <property name="categoryBits" value="32"/>
+    <property name="userData" value="ground"/>
+   </properties>
+  </object>
+  <object name="title2" type="object" x="1696" y="448" width="720" height="64">
+   <properties>
+    <property name="categoryBits" value="32"/>
+   </properties>
+  </object>
+  <object name="title3" type="object" x="768" y="608" width="400" height="128">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+    <property name="categoryBits" value="32"/>
+    <property name="isSensor" value="true"/>
+    <property name="userData" value="light"/>
+   </properties>
+  </object>
+  <object name="dialogue1" type="object" x="1408" y="672" width="360" height="32">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+    <property name="categoryBits" value="32"/>
+    <property name="isSensor" value="true"/>
+    <property name="userData" value="light"/>
+   </properties>
+  </object>
+  <object name="dialogue3" type="object" x="2816" y="672" width="720" height="32">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+    <property name="categoryBits" value="32"/>
+    <property name="isSensor" value="true"/>
+    <property name="userData" value="light"/>
+   </properties>
+  </object>
+  <object name="dialogue2" type="object" x="1952" y="672" width="360" height="32">
+   <properties>
+    <property name="bodyType" value="StaticBody"/>
+    <property name="categoryBits" value="32"/>
+    <property name="isSensor" value="true"/>
+    <property name="userData" value="light"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Player">
+  <object name="player" type="object" x="704" y="640" width="33" height="62">
+   <properties>
+    <property name="bodyType" value="DynamicBody"/>
+    <property name="categoryBits" value="16"/>
+    <property name="density" value="3"/>
+    <property name="fixedRotation" value="true"/>
+    <property name="friction" value="0"/>
+    <property name="linearDamping" value="0"/>
+    <property name="maskBits" value="3"/>
+    <property name="setBullet" value="true"/>
+    <property name="userData" value="player"/>
+   </properties>
+  </object>
+  <object name="feet" type="fixture" x="706.5" y="698" width="28" height="8">
+   <properties>
+    <property name="body" value="player"/>
+    <property name="isSensor" value="true"/>
+    <property name="maskBits" value="3"/>
+    <property name="userData" value="feet"/>
+   </properties>
+  </object>
+  <object name="leg" type="fixture" x="706.5" y="690" width="28" height="8">
+   <properties>
+    <property name="body" value="player"/>
+    <property name="isSensor" value="true"/>
+    <property name="maskBits" value="3"/>
+    <property name="userData" value="leg"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="World 1">
+  <properties>
+   <property name="categoryBits" value="2"/>
+  </properties>
+ </objectgroup>
+ <objectgroup name="World 2">
+  <properties>
+   <property name="categoryBits" value="4"/>
+  </properties>
+ </objectgroup>
+ <objectgroup name="World 3">
+  <properties>
+   <property name="categoryBits" value="8"/>
+   <property name="maskBits" value="31"/>
+  </properties>
+ </objectgroup>
+</map>
