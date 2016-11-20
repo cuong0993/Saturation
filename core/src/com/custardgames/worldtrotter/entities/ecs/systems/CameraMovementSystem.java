@@ -15,8 +15,8 @@ import java.util.EventListener;
 import java.util.Random;
 
 public class CameraMovementSystem extends EntityProcessingSystem implements EventListener {
-    ComponentMapper<Box2dCameraComponent> cameraComponent;
-    ComponentMapper<CameraInputComponent> cameraInputComponent;
+    private ComponentMapper<Box2dCameraComponent> cameraComponent;
+    private ComponentMapper<CameraInputComponent> cameraInputComponent;
 
     @SuppressWarnings("unchecked")
     public CameraMovementSystem() {

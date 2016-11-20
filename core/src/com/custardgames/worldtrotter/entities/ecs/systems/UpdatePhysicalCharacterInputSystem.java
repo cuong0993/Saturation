@@ -19,7 +19,7 @@ import com.custardgames.worldtrotter.managers.EventManager;
 import java.util.EventListener;
 
 public class UpdatePhysicalCharacterInputSystem extends EntityProcessingSystem implements EventListener {
-    ComponentMapper<CharacterInputComponent> characterInputComponent;
+    private ComponentMapper<CharacterInputComponent> characterInputComponent;
     private OrthographicCamera camera;
 
     @SuppressWarnings("unchecked")

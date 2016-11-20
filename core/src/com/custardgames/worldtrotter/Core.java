@@ -15,13 +15,10 @@ public class Core extends Game {
     public static final int HEIGHT = 720;
     public static final int SCALE = 1;
 
-    private List<Screen> screens;
-
-
     @Override
     public void create() {
         Gdx.input.setInputProcessor(new InputHandler());
-        screens = new ArrayList<Screen>();
+        List<Screen> screens = new ArrayList<Screen>();
         screens.add(new Play());
         setScreen(screens.get(0));
     }

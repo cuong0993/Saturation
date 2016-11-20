@@ -27,11 +27,7 @@ public class CharacterFeetComponent extends Component implements EventListener {
     }
 
     public boolean isOnGround() {
-        if (!collisions.isEmpty()) {
-            return true;
-        } else {
-            return false;
-        }
+        return !collisions.isEmpty();
     }
 
     public void handleBeginContactEvent(BeginContactEvent e) {
