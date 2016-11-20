@@ -19,7 +19,7 @@ public class ContactHandler implements ContactListener {
         Fixture fa = contact.getFixtureA();
         Fixture fb = contact.getFixtureB();
 
-        EventManager.get_instance().broadcast(new BeginContactEvent(fa, fb));
+        EventManager.getInstance().broadcast(new BeginContactEvent(fa, fb));
     }
 
     @Override
@@ -27,7 +27,7 @@ public class ContactHandler implements ContactListener {
         Fixture fa = contact.getFixtureA();
         Fixture fb = contact.getFixtureB();
 
-        EventManager.get_instance().broadcast(new EndContactEvent(fa, fb));
+        EventManager.getInstance().broadcast(new EndContactEvent(fa, fb));
     }
 
     @Override

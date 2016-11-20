@@ -22,8 +22,8 @@ public class CameraMovementSystem extends EntityProcessingSystem implements Even
     public CameraMovementSystem() {
         super(Aspect.all(Box2dCameraComponent.class, CameraInputComponent.class));
 
-        EventManager.get_instance().register(KeyPressedEvent.class, this);
-        EventManager.get_instance().register(KeyReleasedEvent.class, this);
+        EventManager.getInstance().register(KeyPressedEvent.class, this);
+        EventManager.getInstance().register(KeyReleasedEvent.class, this);
 
     }
 

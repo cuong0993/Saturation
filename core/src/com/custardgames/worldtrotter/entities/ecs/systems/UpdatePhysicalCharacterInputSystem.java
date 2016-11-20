@@ -26,10 +26,10 @@ public class UpdatePhysicalCharacterInputSystem extends EntityProcessingSystem i
     public UpdatePhysicalCharacterInputSystem() {
         super(Aspect.all(CharacterInputComponent.class));
 
-        EventManager.get_instance().register(KeyPressedEvent.class, this);
-        EventManager.get_instance().register(KeyReleasedEvent.class, this);
-        EventManager.get_instance().register(MousePressedEvent.class, this);
-        EventManager.get_instance().register(MouseReleasedEvent.class, this);
+        EventManager.getInstance().register(KeyPressedEvent.class, this);
+        EventManager.getInstance().register(KeyReleasedEvent.class, this);
+        EventManager.getInstance().register(MousePressedEvent.class, this);
+        EventManager.getInstance().register(MouseReleasedEvent.class, this);
     }
 
     @Override

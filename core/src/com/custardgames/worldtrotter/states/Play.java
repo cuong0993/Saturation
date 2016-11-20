@@ -89,9 +89,9 @@ public class Play implements Screen, EventListener {
     private float secondCounter;
 
     public Play() {
-        EventManager.get_instance().register(ChangeWorldEvent.class, this);
-        EventManager.get_instance().register(PlayerDiedEvent.class, this);
-        EventManager.get_instance().register(NextLevelEvent.class, this);
+        EventManager.getInstance().register(ChangeWorldEvent.class, this);
+        EventManager.getInstance().register(PlayerDiedEvent.class, this);
+        EventManager.getInstance().register(NextLevelEvent.class, this);
         assetManager = new PlayLoadAssets().loadAssets(new AssetManager());
         level = 0;
         init();

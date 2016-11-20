@@ -31,7 +31,7 @@ public class CharacterMovementSystem extends EntityProcessingSystem implements E
     @SuppressWarnings("unchecked")
     public CharacterMovementSystem() {
         super(Aspect.all(Box2dBodyComponent.class, CharacterInputComponent.class, CharacterFeetComponent.class, CharacterLegComponent.class, CharacterDataComponent.class));
-        EventManager.get_instance().register(BeginContactEvent.class, this);
+        EventManager.getInstance().register(BeginContactEvent.class, this);
     }
 
     @Override
@@ -45,15 +45,15 @@ public class CharacterMovementSystem extends EntityProcessingSystem implements E
         if (characterInput.isWorld1()) {
             characterDataComponent.setWorld1();
             changeFilter(19, body);
-            EventManager.get_instance().broadcast(new ChangeWorldEvent(1));
+            EventManager.getInstance().broadcast(new ChangeWorldEvent(1));
         } else if (characterInput.isWorld2()) {
             characterDataComponent.setWorld2();
             changeFilter(21, body);
-            EventManager.get_instance().broadcast(new ChangeWorldEvent(2));
+            EventManager.getInstance().broadcast(new ChangeWorldEvent(2));
         } else if (characterInput.isWorld3()) {
             characterDataComponent.setWorld3();
             changeFilter(25, body);
-            EventManager.get_instance().broadcast(new ChangeWorldEvent(3));
+            EventManager.getInstance().broadcast(new ChangeWorldEvent(3));
         }
 
         double force = 100;
@@ -109,22 +109,22 @@ public class CharacterMovementSystem extends EntityProcessingSystem implements E
                 {
                     if (e.getFb().getBody().getUserData().equals("spikes"))
                     {
-                        EventManager.get_instance().broadcast(new PlayerDiedEvent());
+                        EventManager.getInstance().broadcast(new PlayerDiedEvent());
                     }
                     else if (e.getFb().getBody().getUserData().equals("nextlevel"))
                     {
-                        EventManager.get_instance().broadcast(new NextLevelEvent());
+                        EventManager.getInstance().broadcast(new NextLevelEvent());
                     }
                 }
                 else
                 {
                     if (e.getFa().getBody().getUserData().equals("spikes"))
                     {
-                        EventManager.get_instance().broadcast(new PlayerDiedEvent());
+                        EventManager.getInstance().broadcast(new PlayerDiedEvent());
                     }
                     else if (e.getFa().getBody().getUserData().equals("nextlevel"))
                     {
-                        EventManager.get_instance().broadcast(new NextLevelEvent());
+                        EventManager.getInstance().broadcast(new NextLevelEvent());
                     }
                 }
             }

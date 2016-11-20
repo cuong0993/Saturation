@@ -14,7 +14,7 @@ public class EventManager {
         listeners = new HashMap<Class<?>, LinkedList<EventListener>>();
     }
 
-    public static EventManager get_instance() {
+    public static EventManager getInstance() {
         return _instance;
     }
 

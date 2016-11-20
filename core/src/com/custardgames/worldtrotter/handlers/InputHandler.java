@@ -79,7 +79,7 @@ public class InputHandler extends InputAdapter {
             kcInput.add(keycode + "");
 //			System.out.println("Adding: " + keycode);
         }
-        EventManager.get_instance().broadcast(new KeyPressedEvent(keycode));
+        EventManager.getInstance().broadcast(new KeyPressedEvent(keycode));
 
         return true;
     }
@@ -90,7 +90,7 @@ public class InputHandler extends InputAdapter {
             kcInput.remove(keycode + "");
 //			System.out.println("Removing: " + keycode);
         }
-        EventManager.get_instance().broadcast(new KeyReleasedEvent(keycode));
+        EventManager.getInstance().broadcast(new KeyReleasedEvent(keycode));
 
         return true;
     }
@@ -112,7 +112,7 @@ public class InputHandler extends InputAdapter {
             mouseMiddle = true;
         }
 
-        EventManager.get_instance().broadcast(new MousePressedEvent(button));
+        EventManager.getInstance().broadcast(new MousePressedEvent(button));
         return true;
     }
 
@@ -128,7 +128,7 @@ public class InputHandler extends InputAdapter {
             mouseMiddle = false;
         }
 
-        EventManager.get_instance().broadcast(new MouseReleasedEvent(button));
+        EventManager.getInstance().broadcast(new MouseReleasedEvent(button));
         return true;
     }
 
@@ -149,7 +149,7 @@ public class InputHandler extends InputAdapter {
     @Override
     public boolean scrolled(int amount) {
         mouseWheelRotation = amount;
-        EventManager.get_instance().broadcast(new MouseWheelMovedEvent(amount));
+        EventManager.getInstance().broadcast(new MouseWheelMovedEvent(amount));
         return true;
     }
 

@@ -22,8 +22,8 @@ public class CharacterFeetComponent extends Component implements EventListener {
         this.feet = feet;
         collisions = new ArrayList<Fixture>();
 
-        EventManager.get_instance().register(BeginContactEvent.class, this);
-        EventManager.get_instance().register(EndContactEvent.class, this);
+        EventManager.getInstance().register(BeginContactEvent.class, this);
+        EventManager.getInstance().register(EndContactEvent.class, this);
     }
 
     public boolean isOnGround() {
