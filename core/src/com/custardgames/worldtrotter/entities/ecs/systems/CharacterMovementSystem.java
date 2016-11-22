@@ -22,11 +22,11 @@ import com.custardgames.worldtrotter.managers.EventManager;
 import java.util.EventListener;
 
 public class CharacterMovementSystem extends EntityProcessingSystem implements EventListener {
-    ComponentMapper<Box2dBodyComponent> bodyComponents;
-    ComponentMapper<CharacterInputComponent> characterInputComponents;
-    ComponentMapper<CharacterFeetComponent> characterFeetComponents;
-    ComponentMapper<CharacterLegComponent> characterLegComponents;
-    ComponentMapper<CharacterDataComponent> characterDataComponents;
+    private ComponentMapper<Box2dBodyComponent> bodyComponents;
+    private ComponentMapper<CharacterInputComponent> characterInputComponents;
+    private ComponentMapper<CharacterFeetComponent> characterFeetComponents;
+    private ComponentMapper<CharacterLegComponent> characterLegComponents;
+    private ComponentMapper<CharacterDataComponent> characterDataComponents;
 
     @SuppressWarnings("unchecked")
     public CharacterMovementSystem() {
@@ -61,7 +61,7 @@ public class CharacterMovementSystem extends EntityProcessingSystem implements E
         if (characterFeetComponent.isOnGround()
                 && !characterLegComponent.isOnGround()
                 && (characterInput.isUp() && body.getLinearVelocity().y < 15)) {
-            body.applyForceToCenter((int) (0), (int) (1500), true);
+            body.applyForceToCenter(0, 1500, true);
         }
 
         if (characterInput.isLeft() && !characterLegComponent.isOnGround()) {
@@ -69,14 +69,14 @@ public class CharacterMovementSystem extends EntityProcessingSystem implements E
                 body.setLinearVelocity(0, body.getLinearVelocity().y);
             }
             if (body.getLinearVelocity().x > -10) {
-                body.applyForceToCenter((int) (-1 * force), (int) (0), true);
+                body.applyForceToCenter((int) (-1 * force), 0, true);
             }
         } else if (characterInput.isRight() && !characterLegComponent.isOnGround()) {
             if (body.getLinearVelocity().x < 0) {
                 body.setLinearVelocity(0, body.getLinearVelocity().y);
             }
             if (body.getLinearVelocity().x < 10) {
-                body.applyForceToCenter((int) (1 * force), (int) (0), true);
+                body.applyForceToCenter((int) (1 * force), 0, true);
             }
         } else if (characterFeetComponent.isOnGround()) {
             body.setLinearVelocity((float) (body.getLinearVelocity().x * 0.75), body.getLinearVelocity().y);
@@ -97,33 +97,21 @@ public class CharacterMovementSystem extends EntityProcessingSystem implements E
         }
     }
 
-    public void handleBeginContactEvent(BeginContactEvent e)
-    {
+    public void handleBeginContactEvent(BeginContactEvent e) {
         ImmutableBag<Entity> entities = getEntities();
-        for (int x = 0; x < entities.size(); x++)
-        {
+        for (int x = 0; x < entities.size(); x++) {
             Body body = bodyComponents.get(entities.get(x)).getBody();
-            if (e.getFa().getBody() == body || e.getFb().getBody() == body)
-            {
-                if (e.getFa().getBody() == body)
-                {
-                    if (e.getFb().getBody().getUserData().equals("spikes"))
-                    {
+            if (e.getFa().getBody() == body || e.getFb().getBody() == body) {
+                if (e.getFa().getBody() == body) {
+                    if (e.getFb().getBody().getUserData().equals("spikes")) {
                         EventManager.getInstance().broadcast(new PlayerDiedEvent());
-                    }
-                    else if (e.getFb().getBody().getUserData().equals("nextlevel"))
-                    {
+                    } else if (e.getFb().getBody().getUserData().equals("nextlevel")) {
                         EventManager.getInstance().broadcast(new NextLevelEvent());
                     }
-                }
-                else
-                {
-                    if (e.getFa().getBody().getUserData().equals("spikes"))
-                    {
+                } else {
+                    if (e.getFa().getBody().getUserData().equals("spikes")) {
                         EventManager.getInstance().broadcast(new PlayerDiedEvent());
-                    }
-                    else if (e.getFa().getBody().getUserData().equals("nextlevel"))
-                    {
+                    } else if (e.getFa().getBody().getUserData().equals("nextlevel")) {
                         EventManager.getInstance().broadcast(new NextLevelEvent());
                     }
                 }

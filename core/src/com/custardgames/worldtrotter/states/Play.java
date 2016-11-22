@@ -56,14 +56,14 @@ import box2dLight.PointLight;
 import box2dLight.RayHandler;
 
 public class Play implements Screen, EventListener {
-    public static final float TICK_STEP = 1 / 60f;
+    private static final float TICK_STEP = 1 / 60f;
     private AssetManager assetManager;
     private World artemisWorld;
     private com.badlogic.gdx.physics.box2d.World box2dWorld;
     private ContactHandler contactHandler;
     private boolean reset;
     private int level;
-    private int levelCooldown;
+    private int levelCoolDown;
     private OrthographicCamera b2dCam;
     private Box2DDebugRenderer b2dr;
     private TiledMap tileMap1;
@@ -106,7 +106,7 @@ public class Play implements Screen, EventListener {
         currentWorld = 1;
         reset = false;
 
-        levelCooldown = 60;
+        levelCoolDown = 60;
 
         box2dWorld = new com.badlogic.gdx.physics.box2d.World(new Vector2(0, -20f), true);
         box2dWorld.setContactListener(new ContactHandler());
@@ -339,7 +339,7 @@ public class Play implements Screen, EventListener {
         handler.update();
         ui.act(dt);
 
-        levelCooldown--;
+        levelCoolDown--;
 
         if (reset) {
             reset = false;
@@ -420,9 +420,9 @@ public class Play implements Screen, EventListener {
     }
 
     public void handleNextLevelEvent(NextLevelEvent e) {
-        if (levelCooldown < 0) {
+        if (levelCoolDown < 0) {
             level++;
-            levelCooldown = 60;
+            levelCoolDown = 60;
         }
         reset = true;
     }

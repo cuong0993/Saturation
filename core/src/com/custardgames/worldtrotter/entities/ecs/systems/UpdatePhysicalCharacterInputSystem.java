@@ -53,7 +53,7 @@ public class UpdatePhysicalCharacterInputSystem extends EntityProcessingSystem i
         this.camera = camera;
     }
 
-    public void updateKBInput(int keyCode, boolean pressed, CharacterInputComponent component) {
+    private void updateKBInput(int keyCode, boolean pressed, CharacterInputComponent component) {
         if (keyCode == 51 || keyCode == 19) {
             component.setUp(pressed);
         } else if (keyCode == 47 || keyCode == 20) {
@@ -71,42 +71,34 @@ public class UpdatePhysicalCharacterInputSystem extends EntityProcessingSystem i
         }
     }
 
-    public void updateMouseInput(int buttonNumber, boolean pressed, CharacterInputComponent component) {
+    private void updateMouseInput(int buttonNumber, boolean pressed, CharacterInputComponent component) {
 
     }
 
-    public void handleKeyPressed(KeyPressedEvent keyEvent)
-    {
+    public void handleKeyPressed(KeyPressedEvent keyEvent) {
         ImmutableBag<Entity> entities = getEntities();
-        for (int x = 0; x < entities.size(); x++)
-        {
+        for (int x = 0; x < entities.size(); x++) {
             updateKBInput(keyEvent.getKeyCode(), true, characterInputComponent.get(entities.get(x)));
         }
     }
 
-    public void handleKeyReleased(KeyReleasedEvent keyEvent)
-    {
+    public void handleKeyReleased(KeyReleasedEvent keyEvent) {
         ImmutableBag<Entity> entities = getEntities();
-        for (int x = 0; x < entities.size(); x++)
-        {
+        for (int x = 0; x < entities.size(); x++) {
             updateKBInput(keyEvent.getKeyCode(), false, characterInputComponent.get(entities.get(x)));
         }
     }
 
-    public void handleMousePressed(MousePressedEvent event)
-    {
+    public void handleMousePressed(MousePressedEvent event) {
         ImmutableBag<Entity> entities = getEntities();
-        for (int x = 0; x < entities.size(); x++)
-        {
+        for (int x = 0; x < entities.size(); x++) {
             updateMouseInput(event.getButtonNumber(), true, characterInputComponent.get(entities.get(x)));
         }
     }
 
-    public void handleMouseReleased(MouseReleasedEvent event)
-    {
+    public void handleMouseReleased(MouseReleasedEvent event) {
         ImmutableBag<Entity> entities = getEntities();
-        for (int x = 0; x < entities.size(); x++)
-        {
+        for (int x = 0; x < entities.size(); x++) {
             updateMouseInput(event.getButtonNumber(), false, characterInputComponent.get(entities.get(x)));
         }
     }

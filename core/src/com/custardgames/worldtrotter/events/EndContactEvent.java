@@ -26,6 +26,4 @@ public class EndContactEvent {
     public void setFb(Fixture fb) {
         this.fb = fb;
     }
-
-
 }

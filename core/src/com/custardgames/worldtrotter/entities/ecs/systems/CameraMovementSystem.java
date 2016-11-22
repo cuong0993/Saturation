@@ -40,11 +40,11 @@ public class CameraMovementSystem extends EntityProcessingSystem implements Even
             targetY = cameraInput.getTargetBody().getWorldCenter().y;
         }
 
-        camera.getCamera().position.x = camera.getCamera().position.x + (float) ((targetX - camera.getCamera().position.x) / 30) + cameraInput.getTargetOffsetX();
-        camera.getCamera().position.y = camera.getCamera().position.y + (float) ((targetY - camera.getCamera().position.y) / 30) + cameraInput.getTargetOffsetY();
+        camera.getCamera().position.x += (targetX - camera.getCamera().position.x) / 30 + cameraInput.getTargetOffsetX();
+        camera.getCamera().position.y += (targetY - camera.getCamera().position.y) / 30 + cameraInput.getTargetOffsetY();
 
         if (Math.abs(camera.getRotation() - cameraInput.getTargetRotation()) < Math.toRadians(1)) {
-            cameraInput.setTargetRotation((float) (new Random().nextFloat() * 2 - 1));
+            cameraInput.setTargetRotation(new Random().nextFloat() * 2 - 1);
         } else {
             if (camera.getRotation() - cameraInput.getTargetRotation() > 0) {
                 camera.getCamera().rotate((float) Math.toRadians(-0.05));
@@ -67,83 +67,59 @@ public class CameraMovementSystem extends EntityProcessingSystem implements Even
         camera.getCamera().update();
     }
 
-    public void handleKeyPressed(KeyPressedEvent keyEvent)
-    {
+    public void handleKeyPressed(KeyPressedEvent keyEvent) {
         ImmutableBag<Entity> entities = getEntities();
-        for (int x = 0; x < entities.size(); x++)
-        {
+        for (int x = 0; x < entities.size(); x++) {
             CameraInputComponent cameraInput = cameraInputComponent.get(entities.get(x));
 
-            if (keyEvent.getKeyCode() == 152)
-            {
+            if (keyEvent.getKeyCode() == 152) {
                 cameraInput.setUp(true);
-            }
-            else if (keyEvent.getKeyCode() == 146)
-            {
+            } else if (keyEvent.getKeyCode() == 146) {
                 cameraInput.setDown(true);
             }
 
-            if (keyEvent.getKeyCode() == 148)
-            {
+            if (keyEvent.getKeyCode() == 148) {
                 cameraInput.setLeft(true);
-            }
-            else if (keyEvent.getKeyCode() == 150)
-            {
+            } else if (keyEvent.getKeyCode() == 150) {
                 cameraInput.setRight(true);
             }
 
-            if (keyEvent.getKeyCode() == 151)
-            {
+            if (keyEvent.getKeyCode() == 151) {
                 cameraInput.setZoomIn(true);
-            }
-            else if (keyEvent.getKeyCode() == 153)
-            {
+            } else if (keyEvent.getKeyCode() == 153) {
                 cameraInput.setZoomOut(true);
             }
 
-            if (keyEvent.getKeyCode() == 149)
-            {
+            if (keyEvent.getKeyCode() == 149) {
                 cameraInput.setReset(true);
             }
         }
     }
 
-    public void handleKeyReleased(KeyReleasedEvent keyEvent)
-    {
+    public void handleKeyReleased(KeyReleasedEvent keyEvent) {
         ImmutableBag<Entity> entities = getEntities();
-        for (int x = 0; x < entities.size(); x++)
-        {
+        for (int x = 0; x < entities.size(); x++) {
             CameraInputComponent cameraInput = cameraInputComponent.get(entities.get(x));
 
-            if (keyEvent.getKeyCode() == 152)
-            {
+            if (keyEvent.getKeyCode() == 152) {
                 cameraInput.setUp(false);
-            }
-            else if (keyEvent.getKeyCode() == 146)
-            {
+            } else if (keyEvent.getKeyCode() == 146) {
                 cameraInput.setDown(false);
             }
 
-            if (keyEvent.getKeyCode() == 148)
-            {
+            if (keyEvent.getKeyCode() == 148) {
                 cameraInput.setLeft(false);
-            }
-            else if (keyEvent.getKeyCode() == 150)
-            {
+            } else if (keyEvent.getKeyCode() == 150) {
                 cameraInput.setRight(false);
             }
 
-            if (keyEvent.getKeyCode() == 151)
-            {
+            if (keyEvent.getKeyCode() == 151) {
                 cameraInput.setZoomIn(false);
-            }
-            else if (keyEvent.getKeyCode() == 153)
-            {
+            } else if (keyEvent.getKeyCode() == 153) {
                 cameraInput.setZoomOut(false);
             }
 
-            if (keyEvent.getKeyCode() == 149)
-            {
+            if (keyEvent.getKeyCode() == 149) {
                 cameraInput.setReset(false);
             }
         }

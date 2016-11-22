@@ -5,11 +5,19 @@ import com.badlogic.gdx.physics.box2d.Body;
 
 public class CameraInputComponent extends Component {
     private Body targetBody;
-    private int targetX, targetY;
-    private float targetOffsetX, targetOffsetY;
+    private int targetX;
+    private int targetY;
+    private float targetOffsetX;
+    private float targetOffsetY;
     private float targetRotation;
     private boolean shake;
-    private boolean up, down, left, right, zoomIn, zoomOut, reset;
+    private boolean up;
+    private boolean down;
+    private boolean left;
+    private boolean right;
+    private boolean zoomIn;
+    private boolean zoomOut;
+    private boolean reset;
 
     public CameraInputComponent() {
         reset = true;
@@ -131,6 +139,4 @@ public class CameraInputComponent extends Component {
     public void setShake(boolean shake) {
         this.shake = shake;
     }
-
-
 }

@@ -10,9 +10,6 @@ import com.custardgames.worldtrotter.events.EndContactEvent;
 import com.custardgames.worldtrotter.managers.EventManager;
 
 public class ContactHandler implements ContactListener {
-    // red = 2
-    // yellow = 4
-    // blue = 6
 
     @Override
     public void beginContact(Contact contact) {
@@ -41,5 +38,4 @@ public class ContactHandler implements ContactListener {
         // TODO Auto-generated method stub
 
     }
-
 }

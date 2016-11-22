@@ -15,6 +15,4 @@ public class MouseReleasedEvent {
     public void setButtonNumber(int buttonNumber) {
         this.buttonNumber = buttonNumber;
     }
-
-
 }

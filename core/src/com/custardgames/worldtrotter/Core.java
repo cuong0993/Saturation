@@ -22,5 +22,4 @@ public class Core extends Game {
         screens.add(new Play());
         setScreen(screens.get(0));
     }
-
 }

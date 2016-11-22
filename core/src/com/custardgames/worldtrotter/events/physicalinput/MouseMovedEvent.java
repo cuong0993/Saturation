@@ -2,7 +2,8 @@ package com.custardgames.worldtrotter.events.physicalinput;
 
 
 public class MouseMovedEvent {
-    private int targetX, targetY;
+    private int targetX;
+    private int targetY;
 
     public MouseMovedEvent(int targetX, int targetY) {
         setMouseEvent(targetX, targetY);

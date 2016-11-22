@@ -8,7 +8,7 @@ import com.badlogic.gdx.physics.box2d.joints.RevoluteJoint;
 import com.custardgames.worldtrotter.entities.ecs.components.Box2dRevoluteJointComponent;
 
 public class JointAngleTargetingSystem extends EntityProcessingSystem {
-    ComponentMapper<Box2dRevoluteJointComponent> jointComponents;
+    private ComponentMapper<Box2dRevoluteJointComponent> jointComponents;
 
     @SuppressWarnings("unchecked")
     public JointAngleTargetingSystem() {
@@ -20,7 +20,6 @@ public class JointAngleTargetingSystem extends EntityProcessingSystem {
     protected void process(Entity e) {
         Box2dRevoluteJointComponent jointComponent = jointComponents.get(e);
         RevoluteJoint joint = jointComponent.getJoint();
-        double target = jointComponent.getTargetAngle();
 
         if (joint.getJointAngle() > 0.01) {
             joint.setMotorSpeed((float) -10000);
@@ -30,10 +29,8 @@ public class JointAngleTargetingSystem extends EntityProcessingSystem {
             joint.setMaxMotorTorque(10000000);
         } else {
             joint.setMotorSpeed(0);
-//			joint.
             joint.setMaxMotorTorque(0.1f);
         }
 
     }
-
 }

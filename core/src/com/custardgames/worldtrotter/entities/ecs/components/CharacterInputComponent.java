@@ -3,7 +3,16 @@ package com.custardgames.worldtrotter.entities.ecs.components;
 import com.artemis.Component;
 
 public class CharacterInputComponent extends Component {
-    private boolean left, right, up, down, space, shift, control, world1, world2, world3;
+    private boolean left;
+    private boolean right;
+    private boolean up;
+    private boolean down;
+    private boolean space;
+    private boolean shift;
+    private boolean control;
+    private boolean world1;
+    private boolean world2;
+    private boolean world3;
     private int targetX, targetY;
 
     public CharacterInputComponent() {
@@ -110,5 +119,4 @@ public class CharacterInputComponent extends Component {
     public void setTargetY(int targetY) {
         this.targetY = targetY;
     }
-
 }

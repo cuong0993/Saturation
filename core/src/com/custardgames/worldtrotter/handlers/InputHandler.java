@@ -15,8 +15,12 @@ public class InputHandler extends InputAdapter {
 
     private List<String> kcInput;
 
-    private int mouseX, mouseY, mouseWheelRotation;
-    private boolean mouseLeft, mouseRight, mouseMiddle;
+    private int mouseX;
+    private int mouseY;
+    private int mouseWheelRotation;
+    private boolean mouseLeft;
+    private boolean mouseRight;
+    private boolean mouseMiddle;
 
     public InputHandler() {
         init();
@@ -75,7 +79,6 @@ public class InputHandler extends InputAdapter {
     public boolean keyDown(int keycode) {
         if (!kcInput.contains(keycode)) {
             kcInput.add(keycode + "");
-//			System.out.println("Adding: " + keycode);
         }
         EventManager.getInstance().broadcast(new KeyPressedEvent(keycode));
 
@@ -86,7 +89,6 @@ public class InputHandler extends InputAdapter {
     public boolean keyUp(int keycode) {
         if (kcInput.contains(keycode + "")) {
             kcInput.remove(keycode + "");
-//			System.out.println("Removing: " + keycode);
         }
         EventManager.getInstance().broadcast(new KeyReleasedEvent(keycode));
 
@@ -150,6 +152,4 @@ public class InputHandler extends InputAdapter {
         EventManager.getInstance().broadcast(new MouseWheelMovedEvent(amount));
         return true;
     }
-
-
 }
