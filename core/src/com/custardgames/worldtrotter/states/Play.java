@@ -102,7 +102,7 @@ public class Play implements Screen, EventListener {
         music.play();
     }
 
-    public void init() {
+    private void init() {
         currentWorld = 1;
         reset = false;
 

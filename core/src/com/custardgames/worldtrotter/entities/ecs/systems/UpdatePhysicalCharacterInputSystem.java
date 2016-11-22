@@ -71,6 +71,7 @@ public class UpdatePhysicalCharacterInputSystem extends EntityProcessingSystem i
         }
     }
 
+    /* Do not use mouse */
     private void updateMouseInput(int buttonNumber, boolean pressed, CharacterInputComponent component) {
 
     }
